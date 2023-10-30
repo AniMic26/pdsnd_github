@@ -1,11 +1,13 @@
-# import packages 
+# import package
 import time
 import pandas as pd
 import numpy as np
+from datetime import datetime
+from tabulate import tabulate
 # Load the dataset by global variable 
-CITY_DATA = { 'ch': 'chicago.csv',
-              'ny': 'new_york_city.csv',
-              'w': 'washington.csv' }
+CITY_DATA = { 'CH': 'chicago.csv',
+              'NY': 'new_york_city.csv',
+              'W': 'washington.csv' }
 
 def get_filters():
     """
@@ -18,9 +20,9 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!\n')
     # 1- check for input validation for city
-    # ask the user to input city (chicago (ch), new york city (ny), washington(w)
+    # ask the user to input city (chicago (CH), new york city (NY), washington(W)
     while True:
-        city = input("please, pick a city to analyze:(ch) for chicago or (ny) for new_york_city or (w) for washington:\n").lower()
+        city = input("please, pick a city to analyze:(CH) for Chicago or (NY) for New_York_City or (W) for Washington:\n").lower()
         if city in CITY_DATA.keys():
             break
         else:
@@ -28,19 +30,19 @@ def get_filters():
    
     #2-ask the user to input month (jan, feb, ... , jun, all)
     #check for input validation for month
-    months = ["jan", "feb", "mar", "apr", "may", "jun", "all"]
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "All"]
     while True:
-        month = input("please, pick month (jan, feb, mar, apr, may, jun) to filter or type (all) for not filtering:\n").lower()
+        month = input("please, pick month (Jan, Feb, Mar, Apr, May, Jun) to filter or type (all) for not filtering:\n").lower()
         if month in months:
             break
         else:
             print("Opps!! Invalid Input...")
     
-    # 3- ask the user to input day of week (sat , sun, mon ... fri, all)
+    # 3- ask the user to input day of week (Sat , Sun, Mon ... Fri, All)
     #check for input validation
-    days = ["sat", "sun", "mon", "tus", "wen", "thu", "fri", "all"]
+    days = ["Sat", "Sun", "Mon", "Tus", "Wen", "Thu", "Fri", "All"]
     while True:
-        day = input("please, pick day of week(sat, sun, mon, tus, wen, thu, fri)to filter or(all) for not filtering:\n").lower()
+        day = input("please, pick day of week(Sat, Sun, Mon, Tus, Wen, Thu, Fri)to filter or(all) for not filtering:\n").lower()
         if day in days:
             break
         else:
