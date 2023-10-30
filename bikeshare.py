@@ -1,7 +1,9 @@
-# import packages 
+# import package
 import time
 import pandas as pd
 import numpy as np
+from datetime import datetime
+from tabulate import tabulate
 # Load the dataset by global variable 
 CITY_DATA = { 'CH': 'chicago.csv',
               'NY': 'new_york_city.csv',
